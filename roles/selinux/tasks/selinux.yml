@@ -1,0 +1,8 @@
+---
+- name: Put SELinux in permissive mode
+  selinux:
+    policy: targeted
+    state: permissive
+
+- name: service start & enabled
+  service: name=firewalld state=stoped enabled=no

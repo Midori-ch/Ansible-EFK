@@ -1,0 +1,13 @@
+---
+- name: Add rsyslog send to other port
+  lineinfile:
+    dest: /etc/rsyslog.conf
+    state: present
+    insertafter: EOF
+    line: "{{ item.line }}"
+    backrefs: no
+    backup: yes
+  with_items: "{{ rsyslog_conf }}"
+
+- name: service
+  service: name=rsyslog state=restarted enabled=yes

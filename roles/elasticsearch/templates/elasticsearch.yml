@@ -1,0 +1,8 @@
+path.data: /var/lib/elasticsearch
+path.logs: /var/log/elasticsearch
+
+#Replace ip address 
+network.host: 192.168.1.10
+http.port: 9200
+discovery.seed_hosts: ["192.168.1.10"]
+cluster.initial_master_nodes: ["192.168.1.10"]

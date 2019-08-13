@@ -1,0 +1,18 @@
+---
+- name: download kibana archive
+  get_url: >
+    url={{ kibana_configs.dl_url }}
+    dest={{ kibana_configs.rpm_path }}
+
+- name: install kibana from rpm
+  yum: name={{ kibana_configs.rpm_path }}
+  when: not ansible_check_mode
+
+- name: kibana template copy
+  template: >
+    src=kibana.yml
+    dest=/etc/kibana/kibana.yml
+    backup=yes
+
+- name: service start & enabled
+  service: name=kibana state=started enabled=yes

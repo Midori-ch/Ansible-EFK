@@ -1,0 +1,3 @@
+kibana_configs:
+  dl_url: https://artifacts.elastic.co/downloads/kibana/kibana-7.3.0-x86_64.rpm
+  rpm_path: /usr/local/src/kibana-7.3.0-x86_64.rpm

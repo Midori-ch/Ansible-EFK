@@ -1,0 +1,15 @@
+---
+- name: check java rpm
+  stat: path={{ jdk.rpm_path }}
+  register: java_exists
+
+- name: get java
+  become: yes
+  get_url:
+    url: "{{ jdk.dl_url }}"
+    dest: "{{ jdk.rpm_path }}"
+  when: java_exists.stat.md5 is not defined
+
+- name: install java from local rpm
+  yum: name={{ jdk.rpm_path }}
+  when: not ansible_check_mode

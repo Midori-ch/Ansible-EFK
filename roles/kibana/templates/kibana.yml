@@ -1,0 +1,4 @@
+#Replace ip address
+server.port: 5601
+server.host: "192.168.1.10"
+elasticsearch.hosts: ["http://192.168.1.10:9200"]

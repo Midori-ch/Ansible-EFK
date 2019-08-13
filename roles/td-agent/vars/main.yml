@@ -1,0 +1,6 @@
+---
+td_agent:
+  plugins:
+    - { name: 'fluent-plugin-elasticsearch' }
+  port: 24224
+  bindaddress: 0.0.0.0

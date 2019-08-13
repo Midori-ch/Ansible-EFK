@@ -1,0 +1,20 @@
+---
+- hosts: server
+  become: yes 
+  roles:
+    - libcurl
+    - limits
+    - kernel
+    - jdk
+    - elasticsearch
+    - kibana
+    - httpd
+    - selinux
+
+- hosts: tdagents
+  become: yes 
+  roles:
+    - libcurl
+    - rsyslog
+    - td-agent
+    - selinux

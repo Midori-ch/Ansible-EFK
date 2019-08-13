@@ -1,0 +1,18 @@
+---
+- name: download elasticsearch rpm
+  get_url: >
+    url={{ elasticsearch_configs.dl_url }}
+    dest={{ elasticsearch_configs.rpm_path }}
+
+- name: install elasticsearch from rpm
+  yum: name={{ elasticsearch_configs.rpm_path }}
+  when: not ansible_check_mode
+
+- name: elasticsearch template copy
+  template: >
+    src=elasticsearch.yml
+    dest=/etc/elasticsearch/elasticsearch.yml
+    backup=yes
+
+- name: elasticsearch service start and enabled
+  service: name=elasticsearch state=started enabled=yes

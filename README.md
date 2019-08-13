@@ -24,7 +24,7 @@ Ansible playbook for EFK deploy.(elasticsearch + fluentd + kibana)
 [server]  
 192.168.1.20  
 
-[tgagents]
+[tgagents]  
 192.168.1.21
 ## Run the Playbook
 `$ ansible-playbook -i inventory site.yml`
